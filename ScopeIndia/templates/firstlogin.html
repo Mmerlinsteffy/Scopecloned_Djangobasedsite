@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#04145f,#0b1e63);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .first-login-container{
+            width:100%;
+            max-width:450px;
+            padding:20px;
+        }
+        .first-login-box{
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+        .first-login-box h1{
+            text-align:center;
+            color:#04145f;
+            margin-bottom:10px;
+            font-size:32px;
+        }
+        .first-login-box p{
+            text-align:center;
+            color:#555;
+            margin-bottom:30px;
+            line-height:1.6;
+        }
+        .input-group{
+            margin-bottom:25px;
+        }
+        .input-group label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#04145f;
+        }
+        .input-group input{
+            width:100%;
+            padding:14px;
+            border:2px solid #d4d4d4;
+            border-radius:8px;
+            font-size:16px;
+            transition:0.3s;
+        }
+        .input-group input:focus{
+            border-color:#04145f;
+            outline:none;
+            box-shadow:0 0 8px rgba(4,20,95,0.3);
+        }
+        .otp-btn{
+            width:100%;
+            padding:14px;
+            background:linear-gradient(135deg,#04145f,#0b1e63);
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        .otp-btn:hover{
+            background:linear-gradient(135deg,#0b1e63,#04145f);
+            transform:translateY(-2px);
+        }
+        .back-login{
+            margin-top:20px;
+            text-align:center;
+        }
+        .back-login a{
+            text-decoration:none;
+            color:#04145f;
+            font-weight:bold;
+        }
+        .back-login a:hover{
+            color:goldenrod;
+        }
+    </style>
+</head>
+<body>
+<div class="first-login-container">
+    <div class="first-login-box">
+        <h1>OTP LOGIN</h1>
+        <p>
+            Enter your registered email address.<br>
+            We will send a temporary OTP to verify your account.
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter registered email" required>
+            </div>
+            <button type="submit" class="otp-btn">
+                Send OTP
+            </button>
+<h3>{{error}}</h3>
+        </form>
+        <div class="back-login">
+            <a href="{% url 'login' %}">
+                Back to Login
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

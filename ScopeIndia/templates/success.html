@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+
+    <style>
+
+        body{
+            background:#04145f;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-family:Arial;
+        }
+
+        .box{
+            background:white;
+            padding:50px;
+            border-radius:15px;
+            text-align:center;
+            width:500px;
+        }
+
+        h1{
+            color:green;
+            font-size:40px;
+        }
+
+        p{
+            font-size:22px;
+            color:#333;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            background:gold;
+            padding:12px 30px;
+            text-decoration:none;
+            color:#04145f;
+            border-radius:8px;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Registration Successful</h1>
+
+    <p>Your registration has been completed successfully.</p>
+
+    <a href="{% url "registration" %}">Back Home</a>
+
+</div>
+
+</body>
+</html>

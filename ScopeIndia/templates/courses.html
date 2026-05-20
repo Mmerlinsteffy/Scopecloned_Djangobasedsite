@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+{% include "header.html" %}
+
+<!-- TITLE -->
+<section class="step2">
+    <h1>Courses at SCOPE INDIA</h1>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="step3">
+    <h3>Center for Software, Networking, & Cloud Education</h3>
+
+    <p>
+        One of India's best Training destinations for Software, Networking, DevOps and Cloud Computing courses 
+        with 18 years of Industrial experience. Over 1,000 students find their dream careers each year, 
+        and we have assisted more than 15,000 students so far.
+    </p>
+
+    <hr>
+
+    <h3>Get Globally Certified from SCOPE INDIA</h3>
+
+    <div class="logoparent">
+        <img src="{% static 'Images/microsoft.png' %}" alt="">
+        <img src="{% static 'Images/ibm.png' %}" alt="">
+        <img src="{% static 'Images/google.png' %}" alt="">
+        <img src="{% static 'Images/amazon.png' %}" alt="">
+        <img src="{% static 'Images/redhat.png' %}" alt="">
+        <img src="{% static 'Images/istqb.png' %}" alt="">
+        <img src="{% static 'Images/cisco.png' %}" alt="">
+        <img src="{% static 'Images/github.png' %}" alt="">
+    </div>
+</section>
+
+
+{% for course in courses %}
+
+<div class="new-course-title">
+    <h3>{{ course.maincourse_name }}</h3>
+</div>
+
+<div class="new-course-container">
+    {% for sub in course.subcourse_set.all %}
+    
+    <div class="new-course-card">
+        <a href="{% url "coursedetail" sub.id %}">
+            <span>{{ sub.subcourse_name }}</span>
+            <span class="new-arrow">▶</span>
+        </a>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endfor %}
+
+{% include "footer.html" %}
+</body>
+</html>

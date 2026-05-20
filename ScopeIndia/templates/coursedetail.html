@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{detail.course_title}}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<!-- NAVBAR -->
+{% include "header.html" %}
+
+<!-- TITLE -->
+<section class="step2">
+    <h1>{{detail.course_title}}</h1>
+</section>
+<section class="step3">
+    <h3>Center for Software, Networking, & Cloud Education</h3>
+
+    <p>
+        One of India's best Training destinations for Software, Networking, DevOps and Cloud Computing courses 
+        with 18 years of Industrial experience. Over 1,000 students find their dream careers each year, 
+        and we have assisted more than 15,000 students so far.
+    </p>
+</section>
+<div class="new-course-title">
+    <h3>Course Syllabus</h3>
+   
+      <section class="courseabout">
+    <div class="coursetime">
+        <div class="coursedur">
+            <p>Course Duration : {{detail.Course_duration}}</p>
+        </div>
+        <div class="coursedur">
+            <p>{{detail.course_timing}}</p>
+        </div>
+        <div class="coursedur blink">
+            <p>Next Batch : {{detail.next_batch}}</p>
+        </div>
+    </div>
+
+<div id="course_description">
+			<div>
+			    <div class="single-line-layout">
+					<span>Get&nbsp;</span>
+					<span class="logo-container">
+						<img src="{% static 'Images/ibm.png' %}" alt="Docker Certification" title="Docker Certification">
+						<img src="{% static 'Images/istqb.png' %}"alt="AWS Certification" title="AWS Certification" style="scale: 1.1; margin-top: 18px;">
+						<img src="{% static 'Images/redhat.png' %}" alt="Kubernetes Certification" title="Kubernetes Certification">
+					</span>
+					<span>Global certifications from SCOPE&nbsp;INDIA</span>
+				</div>
+				<p>The DevOps Course & Internship is a comprehensive program designed to seamlessly integrate software development and IT operations, focusing on modern methodologies. Participants gain expertise in CI/CD pipeline deployment, workflow automation, and cloud platform integration with AWS and Azure. The curriculum offers hands-on training with industry-standard tools such as Docker, Kubernetes, and Jenkins, ensuring a blend of theoretical learning and practical application.</p>
+				<p>This program provides essential skills in automation, containerization, cloud computing, and continuous delivery, all of which are in high demand across the tech industry. Through real-world projects, participants develop strong problem-solving abilities, preparing them for roles like DevOps Engineer, Cloud Engineer, Site Reliability Engineer, or Automation Specialist. Given the increasing demand for DevOps professionals, entry-level salaries range from &#8377;4-&#8377;6 LPA in India or $60,000-$80,000 globally, while experienced professionals can earn &#8377;12-&#8377;18 LPA in India or &#36;100,000-&#36;130,000 worldwide. This course is an excellent pathway for individuals looking to build a successful career in DevOps and cloud computing.</p>
+			</div>
+		</div>
+
+    <div id="course_syllabus_container">
+    {% for j in syllabus %}
+        <div class="syllabus-box">
+            <h4>{{ j.title }}</h4>
+        </div>
+    {% endfor %}
+</div>
+
+<div id='backtocourse'>
+    <button id='talkus'>Talk To Us</button>
+    <button id='courseregister'>
+        <a href='{% url "registration" %}'>Register Now</a>
+    </button>
+    <button id='backcourse'>
+        <a href='{% url "course" %}'>Back to Courses</a>
+    </button>
+</div>
+  <div id="course_description" style='padding: 0px 24px 20px 14px '>
+        	<div>
+        		<div class="single-line-layout" style='font-size:40px;color:blue;'>
+        			<span> Frequently Asked Questions (FAQ’s)</span>
+        		</div>
+        		<section id="faq_head_container">
+        
+        			<details>
+        				<summary>What is the starting salary for MEAN Full Stack Developers in India?</summary>
+        				A fresher MEAN Full Stack Developer in India can expect a starting salary ranging from ₹3.5 LPA to ₹6 LPA depending on skills, project exposure, and the company. With experience, salaries can go much higher, especially in top IT hubs like Bangalore, Hyderabad, and Pune.
+        			</details>
+        
+        			<details>
+        				<summary>Is the MEAN Full Stack Course suitable for beginners/freshers?</summary>
+        				Yes! The MEAN Full Stack Course is designed for absolute beginners as well as those with some programming knowledge. We start from the basics of HTML, CSS, JavaScript, and then move step by step into MongoDB, Express.js, Angular, and Node.js, with hands-on projects.
+        			</details>
+        
+        			<details>
+        				<summary>Can the MEAN Full Stack Course help me switch my career to IT from a non-IT background?</summary>
+        				Definitely. Many of our students come from non-IT backgrounds like commerce, arts, or other fields. Our training starts from scratch and focuses on practical, real-time project experience that prepares you for IT jobs regardless of your past academics.
+        			</details>
+        
+        			<details>
+        				<summary>Is the MEAN Full Stack Course aligned with industry certifications?</summary>
+        				Yes. We provide globally recognized certifications from Microsoft, Google, IBM, Red Hat, Amazon, GitHub, and others. While MEAN stack itself doesn’t have a single universal certification, the skills you gain (MongoDB, Angular, Node.js, etc.) are highly valued in the IT industry. The MEAN Full Stack Course at SCOPE INDIA is designed as per industry standards, ensuring you learn exactly what companies expect from a Full Stack Developer.
+        			</details>
+        
+        			<details>
+        				<summary>How is the MEAN Full Stack Course different from other institutes in Kerala?</summary>
+        				<ul type='disc' id='disc'>
+        					<li>100% practical training with live projects.</li>
+        					<li>One-to-one mentorship from industry experts.</li>
+        					<li>Globally recognized certifications.</li>
+        					<li>Placement assistance & career guidance.</li>
+        					<li>Training at multiple branches across Trivandrum, Kochi, Nagercoil, and Technopark.</li>
+        				</ul>
+        				This makes the MEAN Full Stack Course stand out from institutes that focus only on theory.
+        			</details>
+        
+        			<details>
+        				<summary>Do you provide placement assistance after the MEAN Full Stack Course?</summary>
+        				Yes, we provide complete placement support – from resume building, mock interviews, and career counseling to direct placement drives with our hiring partners.
+        			</details>
+        
+        			<details>
+        				<summary>Do recruiters from MNCs visit or hire from SCOPE INDIA?</summary>
+        				Yes. Many recruiters from MNCs and top IT companies regularly hire from SCOPE INDIA. Our placement cell is connected with companies across Kerala, Bangalore, Chennai, Hyderabad, and even abroad.
+        			</details>
+        
+        			<details>
+        				<summary>Can I apply for jobs in other cities like Bangalore, Chennai, or abroad after the MEAN Full Stack Course?</summary>
+        				Of course! After completing the MEAN Full Stack Course, you can apply for jobs in Bangalore, Chennai, Hyderabad, Pune, or even overseas since MEAN stack development is in high demand globally.
+        			</details>
+        
+        			<details>
+        				<summary>Is the MEAN Full Stack Course a good career option in India?</summary>
+        				Yes. With the boom in web applications, startups, and enterprise software, MEAN Full Stack Developers are among the most in-demand professionals in India and abroad. It offers excellent career growth and job security.
+        			</details>
+        
+        			<details>
+        				<summary>What is the placement success rate for the MEAN Full Stack Course?</summary>
+        				SCOPE INDIA maintains a high placement success rate as most of our students get placed soon after completing the MEAN Full Stack Course, thanks to hands-on training, live projects, and industry-level exposure that make them job-ready.
+        			</details>
+        
+        			<details>
+        				<summary>What job roles can I expect after completing the MEAN Full Stack Developer Course?</summary>
+        				After completing the MEAN Full Stack Developer Course, you’ll have a wide range of career opportunities depending on the skills you gain during training. Most students step into roles such as:
+        				<ul id='disc'>
+        					<li>Full Stack Developer (MEAN)</li>
+        					<li>Front-End Developer</li>
+        					<li>Back-End Developer</li>
+        					<li>Web Application Developer</li>
+        					<li>JavaScript Developer</li>
+        					<li>Software Engineer</li>
+        				</ul>
+        				The more practical, hands-on experience you build—especially by working on real-time projects—the stronger your chances of getting hired, even as a fresher. At SCOPE INDIA, we ensure this through live project training with our in-house IT company, Suffix E Solutions, giving you real-world exposure before you even finish the course.
+        			</details>
+        
+        		</section>
+            </div>
+            <div style='margin:20px 0px'>
+        
+        		<div class="single-line-layout"style='font-size:40px;color:blue;'>
+        			<span>Career Outlook for this Skill</span>
+        		</div>
+        
+        		<p>
+        			As India accelerates towards a digital-first economy, the demand for professionals who can design, develop, and deploy scalable web applications is rapidly increasing. Top firms like Infosys, TCS, Wipro, Cognizant, Accenture, and global tech giants such as Google, Netflix, IBM, and Dropbox are actively hiring MEAN Full Stack Developers across domains like web development, cloud platforms, product engineering, and enterprise applications.
+        		</p>
+        		<p>
+        			Whether you aim to become a Full Stack Developer, Web Application Engineer, or JavaScript Specialist, mastering MEAN (MongoDB, Express.js, Angular, Node.js) gives you a clear competitive edge. In India, the average salary for MEAN Full Stack Developers starts at ₹3.5–6 LPA for freshers, moving up to ₹8–12 LPA with a few years of experience. In top product companies or international firms, salaries can even go beyond ₹15–18 LPA.
+        		</p>
+        	</div>
+        
+        		<div>
+				<div class="single-line-layout"style='font-size:40px;color:blue;'>
+					<span>Basic Qualifications</span>
+				</div>
+				<p>
+				     Minimum Requirement: Plus Two / Higher Secondary (12th Grade). You don’t need a specific degree to start your journey  many startups and entry-level IT roles welcome skilled candidates without formal qualifications.
+				</p>
+				<p>
+				    At SCOPE INDIA, you don’t have to be an expert before enrolling. We begin from the very basics and guide you step-by-step, covering:
+				    <ul  id='disc'>
+				        <li>
+				            Computer fundamentals and internet usage
+				        </li>
+				        <li>
+				           File management skills
+				        </li>
+				        <li>
+				            Familiarity with Microsoft Office or Google Workspace
+				        </li>
+				        <li>
+				            Basic math concepts (especially useful for data-related tasks)
+				        </li>
+				    </ul>
+				</p>
+				<p>From learning the core concepts to working on hands-on live projects under industry-expert mentorship, we prepare you for real-world opportunities right from the start.</p>
+            </div>
+        </div>
+</section>
+{% include "footer.html" %}
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% extends "dashboardbase.html" %}
+{% block content %}
+<div class="dashboard-card">
+    <h1>
+        Welcome to Your Dashboard
+    </h1>
+    <p class="dashboard-text">
+        Manage your profile, explore course details,
+        update your personal information, and stay
+        connected with your learning journey through
+        this student dashboard portal.
+    </p>
+    {% if student.file %}
+    <img src="{{student.file.url}}" class="profile-image">
+    {% else %}
+    <div class="empty-image">No Image Uploaded</div>
+    {% endif %}
+    <form method="POST"  enctype="multipart/form-data" class="upload-form">
+        {% csrf_token %}
+        <label>
+            Upload an Image
+        </label>
+        <input type="file"   name="image">
+        <button type="submit"> Upload</button>
+    </form>
+</div>
+<style>
+.dashboard-card{
+    width:1000px;
+    background:aqua;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+
+.dashboard-card h1{
+    color:#0b1f8a;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+
+.dashboard-text{
+    font-size:18px;
+    color:#333;
+    line-height:30px;
+    margin-bottom:35px;
+}
+
+.profile-image{
+    width:260px;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    border:3px solid #0b1f8a;
+    margin-bottom:30px;
+}
+
+
+.empty-image{
+    width:260px;
+    height:260px;
+    background:#ddd;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    margin-bottom:30px;
+    color:#555;
+    font-size:18px;
+}
+
+
+.upload-form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.upload-form label{
+    font-size:22px;
+    font-weight:bold;
+    color:#0b1f8a;
+
+}
+
+.upload-form input{
+
+    padding:10px;
+
+}
+
+.upload-form button{
+
+    background:#0b1f8a;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+
+}
+
+.upload-form button:hover{
+    background:#06115c;
+
+}
+
+</style>
+
+{% endblock %}

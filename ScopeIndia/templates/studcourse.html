@@ -1,0 +1,166 @@
+{% extends "dashboardbase.html" %}
+{% block content %}
+<div class="course-page">
+    <div class="course-title">
+        <h1>Courses</h1>
+    </div>
+    <div class="search-card">
+        <h2>Search Course</h2>
+        <form method="GET">
+            <input type="text" name="search"  placeholder="Search Sub Course">
+            <button type="submit">Search</button>
+        </form>
+        {% if search_course %}
+{% for i in search_course %}
+<div class="search-result">
+    <h3>
+        {{i.subcourse_name}}
+    </h3>
+    <p>
+        <span>Duration :</span>
+        {{i.Course_duration}}
+    </p>
+    <p>
+        <span>Next Batch :</span>
+        {{i.next_batch}}
+    </p>
+    <p>
+        <span>Class Timing :</span>
+        {{i.course_timing}}
+    </p>
+</div>
+{% endfor %}
+{% endif %}
+    </div>
+    <div class="registered-course">
+        <h2>Registered Course</h2>
+        <div class="course-box">
+            <p>
+                <span>Course Name :</span>
+                {{student.student_id.course}}
+            </p>
+            <p>
+                <span>Timing :</span>
+                {{student.student_id.timing}}
+            </p>
+            <p>
+                <span>Mode :</span>
+                {{student.student_id.train_mode}}
+            </p>
+            <p>
+                <span>Location :</span>
+                {{student.student_id.location}}
+            </p>
+        </div>
+    </div>
+</div>
+<style>
+.course-page{
+    width:100%;
+}
+.course-title{
+    background:#dbe8ff;
+    padding:25px 35px;
+    border-radius:15px;
+    margin-bottom:30px;
+}
+.course-title h1{
+    color:#0b1f8a;
+    font-size:38px;
+}
+
+.search-card{
+    background:aqua;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:35px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.search-card h2{
+    color:#0b1f8a;
+    margin-bottom:20px;
+}
+
+
+.search-card form{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.search-card input{
+    width:350px;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+.search-card button{
+    background:#0b1f8a;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.search-result{
+    width:650px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    border-left:5px solid #0b1f8a;
+    margin-bottom:20px;
+}
+
+.search-result h3{
+    color:#0b1f8a;
+    margin-bottom:15px;
+
+}
+
+.search-result p{
+    margin-bottom:10px;
+}
+
+.search-result span{
+    font-weight:bold;
+    color:#0b1f8a;
+}
+
+.registered-course{
+    background:aqua;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.registered-course h2{
+    color:#0b1f8a;
+    margin-bottom:25px;
+}
+
+.course-box{
+    width:500px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    border-left:6px solid #0b1f8a;
+}
+
+.course-box p{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.course-box span{
+    color:#0b1f8a;
+    font-weight:bold;
+    width:150px;
+    display:inline-block;
+}
+</style>
+
+{% endblock %}

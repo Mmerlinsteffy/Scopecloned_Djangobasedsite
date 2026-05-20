@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+   {% include "header.html" %}
+   <section class='loginpage'>
+   <div class="login-container">
+    <div class="login-box">
+        <h1>Student Login</h1>
+        <form method="Post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" name='uname'>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" name='pword'>
+            </div>
+            <div class="remember-box">
+                <input type="checkbox" id="keep" name='keep'>
+                <label for="keep">Keep me logged in</label>
+            </div>
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+            <h3 style='color:'red';'>{{error}}</h3>
+        </form>
+        <div class="extra-links">
+            <a href="{% url "first" %}">First Time Login?</a>
+            <p>Generate temporary password via email</p>
+        </div>
+        <div class="extra-links">
+            <a href="{% url "forgot" %}">Forgot Password?</a>
+            <p>Reset password using temporary password</p>
+        </div>
+    </div>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Failed</title>
+
+    <style>
+
+        body{
+            background:#04145f;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-family:Arial;
+        }
+
+        .box{
+            background:white;
+            padding:50px;
+            border-radius:15px;
+            text-align:center;
+            width:500px;
+        }
+
+        h1{
+            color:red;
+            font-size:40px;
+        }
+
+        p{
+            font-size:22px;
+            color:#333;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            background:red;
+            padding:12px 30px;
+            text-decoration:none;
+            color:white;
+            border-radius:8px;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Registration Failed</h1>
+
+    <p>Unable to complete registration.</p>
+
+    <a href="{% url "registration" %}">Try Again</a>
+
+</div>
+
+</body>
+</html>

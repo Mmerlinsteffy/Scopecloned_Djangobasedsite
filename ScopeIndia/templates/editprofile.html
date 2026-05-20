@@ -1,0 +1,71 @@
+{% extends "dashboardbase.html" %}
+{% block content %}
+<div class="edit-card">
+    <h1>Edit Profile</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-container">
+            {{form.as_p}}
+        </div>
+        <button type="submit"class="save-btn"> Update Profile</button>
+    </form>
+</div>
+<style>
+.edit-card{
+    width:950px;
+    background:aqua;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.edit-card h1{
+    color:#0b1f8a;
+    margin-bottom:35px;
+    font-size:32px;
+}
+.form-container p{
+    display:flex;
+    align-items:center;
+    margin-bottom:22px;
+}
+.form-container label{
+    width:280px;
+    font-size:18px;
+    font-weight:bold;
+    color:#0b1f8a;
+}
+.form-container input,
+.form-container select,
+.form-container textarea{
+    flex:1;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+    transition:0.3s;
+}
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus{
+    border:1px solid #0b1f8a;
+    box-shadow:0 0 5px rgba(11,31,138,0.3);
+}
+.save-btn{
+    margin-top:25px;
+    background:#0b1f8a;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.save-btn:hover{
+    background:#06115c;
+
+}
+</style>
+
+{% endblock %}
