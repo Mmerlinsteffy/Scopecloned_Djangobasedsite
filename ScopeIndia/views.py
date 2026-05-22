@@ -78,6 +78,8 @@ def register(request):
     return render(request,'registration.html')
 
 def login_enter(request):
+    if 'student' in request.session:
+        return redirect('dashboard')
     if request.method=='POST':
         uname=request.POST['uname']
         pword=request.POST['pword']
